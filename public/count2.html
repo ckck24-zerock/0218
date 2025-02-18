@@ -15,7 +15,35 @@
 
 <script>
 
+  const data = {count: 1}
+
+  const h2 = document.querySelector("#counter")
+
+  function render() {
+    h2.innerHTML = data.count
+  }
+
+  const minusBtn = document.querySelector(".btn-danger")
+  const plusBtn = document.querySelector(".btn-success")
+
+  minusBtn.addEventListener("click", e => {
+    data.count -= 1
+    render()
+  }, false)
+
+  plusBtn.addEventListener("click", e => {
+    data.count += 1
+    render()
+  }, false)
+
+
+  render()
 </script>
 
 </body>
 </html>
+
+
+
+
+
