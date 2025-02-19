@@ -20,18 +20,58 @@
         color:blue
     }
 
+    input[name='fullName'] {
+        margin: 3em;
+    }
+
+    .hidden {
+        display: none;
+    }
+
 </style>
 
 
-  <div id="d1">AAAAAAAA</div>
+  <div id="d1">
+      <div>AAA</div>
+  </div>
 
-  <div class="card">BBBBBBBB</div>
+  <div class="card" data-ord="1" >BBBBBBBB</div>
 
   <div class="card">CCCCCCCC</div>
   <div>
       <input type="text" name="fullName">
   </div>
 
+  <ul class="paging">
+
+  </ul>
+
+
+<script>
+
+    const d1 = document.querySelector('#d1')
+
+    const target = d1.querySelector("div")
+
+    const paging = document.querySelector(".paging")
+
+    let str = ''
+
+    for(let i = 0; i < 10; i++){
+
+        str += `<li>AAAAAAAAA ${i}  </li>`
+    }
+
+    paging.innerHTML = str
+
+    setTimeout(() => {
+        console.log("AAAAAAA")
+
+        paging.setAttribute("class", "paging hidden")
+
+    }, 3000)
+
+</script>
 
 </body>
 </html>
