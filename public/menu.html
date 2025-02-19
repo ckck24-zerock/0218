@@ -51,6 +51,7 @@
       margin: 2em;
       border: 1px solid blue;
       padding: 2em;
+      background-color: white;
       border-radius: 5px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 아래쪽 그림자 */
   }
@@ -96,7 +97,7 @@
           console.log(mno, mname, price)
           console.log("----------------")
 
-          str += `<li>${mno} --- ${mname} --- ${price}</li>`
+          str += `<li data-mno="${mno}">${mno} --- ${mname} --- ${price}</li>`
       }//end for
 
       document.querySelector(".menuList").innerHTML = str
@@ -104,6 +105,22 @@
   }
 
   makeMenuList()
+
+  document.querySelector(".menuList").addEventListener("click", e => {
+
+      const target = e.target
+
+      if(!target.dataset.mno){
+          return
+      }
+
+      const mno = target.dataset.mno
+
+      alert(mno)
+
+
+
+  }, false)
 
 </script>
 
