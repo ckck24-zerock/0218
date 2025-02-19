@@ -6,11 +6,46 @@
 </head>
 <body>
 
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 50vw;  /* 기본적으로 너비 50% */
+    height: 100vh;
+    background-color: darkkhaki;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 0.3s ease-in-out; /* 부드러운 전환 효과 */
+  }
+
+  /* 📌 모바일(세로 모드)에서 전체 너비 차지 */
+  @media screen and (max-width: 768px) {
+    .container {
+      width: 100vw;
+    }
+  }
+
+</style>
+
+<div class="container">
+
+</div>
+
 
 <script>
 
   const menus = [
     {mno: 1, mname: 'Americano', price:4000, img1:'1.jpg', img2:'2.jpg', cat:'coffee'},
+    {mno: 2, mname: 'Latte', price:4500, img1:'1.jpg', img2:'2.jpg', cat:'coffee'},
+    {mno: 3, mname: 'Red Tea', price:5000, img1:'1.jpg', img2:'2.jpg', cat:'coffee'},
+    {mno: 4, mname: 'Cheese Cake', price:7000, img1:'1.jpg', img2:'2.jpg', cat:'cake'},
+    {mno: 5, mname: 'Apple Chip', price:2000, img1:'1.jpg', img2:'2.jpg', cat:'cookie'},
+    {mno: 6, mname: 'Financier', price:3000, img1:'1.jpg', img2:'2.jpg', cat:'cookie'},
   ]
 
 
