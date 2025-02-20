@@ -35,72 +35,7 @@
 <!-- 🟢 메뉴 그리드 -->
 <div class="container mt-4">
     <div class="row">
-        <!-- 메뉴 아이템 -->
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/300x200/?korean-food" class="card-img-top" alt="한식">
-                <div class="card-body">
-                    <h5 class="card-title">비빔밥</h5>
-                    <p class="card-text">신선한 재료로 만든 맛있는 비빔밥</p>
-                    <button class="btn btn-primary">자세히 보기</button>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/300x200/?chinese-food" class="card-img-top" alt="중식">
-                <div class="card-body">
-                    <h5 class="card-title">짜장면</h5>
-                    <p class="card-text">고소한 맛이 일품인 짜장면</p>
-                    <button class="btn btn-primary">자세히 보기</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/300x200/?steak" class="card-img-top" alt="양식">
-                <div class="card-body">
-                    <h5 class="card-title">스테이크</h5>
-                    <p class="card-text">육즙 가득한 프리미엄 스테이크</p>
-                    <button class="btn btn-primary">자세히 보기</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/300x200/?dessert" class="card-img-top" alt="디저트">
-                <div class="card-body">
-                    <h5 class="card-title">초코 케이크</h5>
-                    <p class="card-text">부드러운 초콜릿이 가득한 케이크</p>
-                    <button class="btn btn-primary">자세히 보기</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/300x200/?pizza" class="card-img-top" alt="피자">
-                <div class="card-body">
-                    <h5 class="card-title">페퍼로니 피자</h5>
-                    <p class="card-text">바삭한 도우와 치즈가 듬뿍!</p>
-                    <button class="btn btn-primary">자세히 보기</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/300x200/?pasta" class="card-img-top" alt="파스타">
-                <div class="card-body">
-                    <h5 class="card-title">크림 파스타</h5>
-                    <p class="card-text">고소한 크림소스가 일품!</p>
-                    <button class="btn btn-primary">자세히 보기</button>
-                </div>
-            </div>
-        </div>
 
     </div>
 </div>
@@ -127,7 +62,24 @@
             }
             return m.cat === cname
         })
-        console.log(result)
+        printMenu(result)
+    }
+
+    function printMenu(arr){
+
+        const divs = arr.map(m => `
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img src="https://source.unsplash.com/300x200/?korean-food" class="card-img-top" alt="한식">
+                <div class="card-body">
+                    <h5 class="card-title">비빔밥</h5>
+                    <p class="card-text">신선한 재료로 만든 맛있는 비빔밥</p>
+                    <button class="btn btn-primary">자세히 보기</button>
+                </div>
+            </div>
+        </div>`)
+
+        console.log(divs)
     }
 
     filterCategory()
