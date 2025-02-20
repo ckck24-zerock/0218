@@ -21,12 +21,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="#">전체</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">한식</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">중식</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">양식</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">디저트</a></li>
+            <ul class="navbar-nav ms-auto cat">
+                <li class="nav-item"><a class="nav-link active" href="">전체</a></li>
+                <li class="nav-item"><a class="nav-link" href="K">한식</a></li>
+                <li class="nav-item"><a class="nav-link" href="C">중식</a></li>
+                <li class="nav-item"><a class="nav-link" href="W">양식</a></li>
+                <li class="nav-item"><a class="nav-link" href="D">디저트</a></li>
             </ul>
         </div>
     </div>
@@ -72,18 +72,28 @@
             <div class="card">
                 <img src="https://source.unsplash.com/300x200/?korean-food" class="card-img-top" alt="한식">
                 <div class="card-body">
-                    <h5 class="card-title">비빔밥</h5>
+                    <h5 class="card-title">${m.mname}</h5>
                     <p class="card-text">신선한 재료로 만든 맛있는 비빔밥</p>
                     <button class="btn btn-primary">자세히 보기</button>
                 </div>
             </div>
-        </div>`)
+        </div>`).join("")
 
-        console.log(divs)
+        document.querySelector(".row").innerHTML = divs
     }
 
     filterCategory()
 
+    document.querySelector(".cat").addEventListener("click", e => {
+
+        e.preventDefault()
+
+        const target = e.target
+        const catName = target.getAttribute("href")
+
+        filterCategory(catName)
+
+    }, false)
 
 
 </script>
