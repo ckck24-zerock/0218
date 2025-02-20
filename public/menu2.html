@@ -84,7 +84,7 @@
 
     filterCategory()
 
-    const navbarCollapse = document.querySelector(".navbar-collapse"); // 메뉴 창
+    const navbarCollapse = new bootstrap.Collapse(document.querySelector(".navbar-collapse")); // 메뉴 창
 
     document.querySelector(".cat").addEventListener("click", e => {
 
@@ -94,10 +94,8 @@
         const catName = target.getAttribute("href")
 
         filterCategory(catName)
+        navbarCollapse.hide();
 
-        if (navbarCollapse.classList.contains("show")) {
-            new bootstrap.Collapse(navbarCollapse).hide();
-        }
 
     }, false)
 
