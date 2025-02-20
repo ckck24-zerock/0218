@@ -68,12 +68,15 @@
     </div>
   </div>
   <div class="detail">
-    Detail
+    Detail <a href="tel:01012345678">전화 걸기</a>
       <div>
           TNO <input type="text" name="mno" readonly>
       </div>
       <div>
           TNAME <input type="text" name="mname" readonly>
+      </div>
+      <div>
+          TNAME <input type="number" name="price" readonly>
       </div>
   </div>
 </div>
@@ -128,12 +131,16 @@
 
   }, false)
 
+  const mnoInput = document.querySelector(".detail input[name='mno']")
+  const mnameInput = document.querySelector(".detail input[name='mname']")
+  const priceInput = document.querySelector(".detail input[name='price']")
+
   function printMenu(menu) {
 
       console.log(menu)
-
-      const mnoInput = document.querySelector(".detail input[name='mno']")
       mnoInput.value = menu.mno
+      mnameInput.value = menu.mname
+      priceInput.value = menu.price
   }
 
 
