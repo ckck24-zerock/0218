@@ -69,6 +69,12 @@
   </div>
   <div class="detail">
     Detail
+      <div>
+          TNO <input type="text" name="tno" readonly>
+      </div>
+      <div>
+          TNAME <input type="text" name="tname" readonly>
+      </div>
   </div>
 </div>
 
@@ -109,18 +115,27 @@
   document.querySelector(".menuList").addEventListener("click", e => {
 
       const target = e.target
-
       if(!target.dataset.mno){
           return
       }
-
       const mno = target.dataset.mno
 
-      alert(mno)
+      const targetMenu = menus.findLast( m => m.mno === Number(mno))
 
-
+      console.log(targetMenu)
+      //document.querySelector(".detail").innerHTML = `<h1>${targetMenu.mno}</h1>`
+      printMenu(targetMenu)
 
   }, false)
+
+  function printMenu(menu) {
+
+      console.log(menu)
+
+      const tnoInput = document.querySelector(".detail input[name='tno']")
+      tnoInput.value = menu.mno
+  }
+
 
 </script>
 
