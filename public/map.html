@@ -8,6 +8,17 @@
 
 
 <div id="map" style="width:100vw;height:50vh;"></div>
+
+<div>
+  <ul class="category">
+    <li data-cat="A">전체</li>
+    <li data-cat="S">돼지국밥</li>
+    <li data-cat="N">밀면</li>
+    <li data-cat="C">중국집</li>
+  </ul>
+</div>
+
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ba7eb7ddf1f56ab28f3ee61c9627f2e0"></script>
 
 <script>
@@ -42,16 +53,16 @@
     }
 
     // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-    var iwContent = '<div style="padding:5px;">Hello World!</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-            iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+    const iwContent = `<div style="padding:5px;">${sno} - ${name}</div>`
+    const iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
-// 인포윈도우를 생성합니다
-    var infowindow = new kakao.maps.InfoWindow({
+    // 인포윈도우를 생성합니다
+    const infowindow = new kakao.maps.InfoWindow({
       content : iwContent,
       removable : iwRemoveable
     });
 
-// 마커에 클릭이벤트를 등록합니다
+    // 마커에 클릭이벤트를 등록합니다
     kakao.maps.event.addListener(marker, 'click', function() {
       // 마커 위에 인포윈도우를 표시합니다
       infowindow.open(map, marker);
@@ -74,11 +85,28 @@
 
   const markedStores = stores.map( s => makeMarker(s))
 
-  console.log(markedStores)
+  function showSelectStore(catName) {
+    //모든 마커들은 안보이게
+    markedStores.forEach( s => s.marker.hide())
 
-  markedStores.forEach( (store) => {
-    store.marker.show()
-  })
+    markedStores.filter(s => {
+      if(catName === 'A'){
+        return true
+      }return s.cat === catName
+    }).forEach(s => s.marker.show())
+  }
+
+  document.querySelector('.category').addEventListener("click", e => {
+
+    const target = e.target
+
+    if(target.tagName !== 'LI') { return }
+
+    showSelectStore(target.dataset.cat)
+
+
+  }, false)
+
 
 
 
