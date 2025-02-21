@@ -15,7 +15,7 @@
   const container = document.querySelector('#map')
   const options = {
     center: new kakao.maps.LatLng(35.170797, 129.114157),
-    level: 3
+    level: 7
   }
 
   const map = new kakao.maps.Map(container, options);
@@ -60,7 +60,9 @@
 
   console.log(markedStores)
 
-  markedStores[0].marker.show()
+  markedStores.forEach( (store) => {
+    store.marker.show()
+  })
 
 
 
