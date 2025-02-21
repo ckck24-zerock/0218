@@ -52,7 +52,7 @@
 
       console.log(tno)
 
-      const arr = service.remove(tno)
+      const arr = service.remove(Number(tno))
 
       const liStr = arr.map( todo => `<li data-tno="${todo.tno}">${todo.tno} - ${todo.title} <button>DEL</button>  </li>` ).join("")
 
