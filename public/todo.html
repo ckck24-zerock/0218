@@ -25,9 +25,17 @@
   const addBtn = document.querySelector(".addBtn")
   const todoList = document.querySelector(".todoList")
 
+  const service = TodoSerivce()
+
   addBtn.addEventListener("click", e => {
     const title = input.value
-    console.log(title)
+
+    const arr = service.add(title)
+
+    const liStr = arr.map( todo => `<li>${todo.tno} - ${todo.title}</li>` ).join("")
+
+    todoList.innerHTML = liStr
+
   }, false)
 
 
