@@ -14,7 +14,14 @@ export default function TodoSerivce() {
         return [...arr]
     }
 
-    function remove() {  }
+    function remove(tno = 0) {
+
+        const resultArr = arr.filter(todo => todo.tno !== tno)
+
+        arr = resultArr
+
+        return [...arr]
+    }
 
     return {add: add ,  remove: remove }
 }
