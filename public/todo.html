@@ -6,10 +6,25 @@
 </head>
 <body>
 
+<div>
+  <input type="text" name="title" >
+  <button class="addBtn">ADD</button>
+</div>
+
+<div>
+  <ul class="todoList">
+
+  </ul>
+</div>
+
+
 <script type="module">
   import TodoSerivce from "./todo.js";
 
-  console.log(TodoSerivce())
+  const input = document.querySelector("input[name='title']")
+  const addBtn = document.querySelector(".addBtn")
+  const todoList = document.querySelector(".todoList")
+
 
 </script>
 
