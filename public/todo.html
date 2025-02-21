@@ -32,9 +32,25 @@
 
     const arr = service.add(title)
 
-    const liStr = arr.map( todo => `<li>${todo.tno} - ${todo.title}</li>` ).join("")
+    const liStr = arr.map( todo => `<li data-tno="${todo.tno}">${todo.tno} - ${todo.title} <button>DEL</button>  </li>` ).join("")
 
     todoList.innerHTML = liStr
+
+  }, false)
+
+  todoList.addEventListener("click", e => {
+
+      const target = e.target
+
+      if(!target || target.tagName !== 'BUTTON'){
+          return
+      }
+
+      const li = target.closest("li")
+
+      const tno = li.dataset.tno
+
+      console.log(tno)
 
   }, false)
 
