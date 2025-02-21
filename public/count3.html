@@ -13,23 +13,28 @@
 
     let num = 1
 
-    function change() {
+    function inc() {
 
       return num ++ ;
     }
 
-    return change
+    function dec() {
+
+      return num--;
+    }
+
+    return { inc:inc, dec:dec }
   }
 
   const c1 = counter()
 
   const c2 = counter()
 
-  console.log(c1())
-  console.log(c1())
+  console.log(c1.inc())
+  console.log(c1.inc())
   console.log("--------------")
-  console.log(c2())
-  console.log(c2())
+  console.log(c2.inc())
+  console.log(c2.inc())
 
 
 
