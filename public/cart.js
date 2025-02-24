@@ -8,7 +8,11 @@ function cart() {
         //items에 추가
     }
 
-    return {items:items, add:add}
+    function getItems () {
+        return [...items]
+    }
+
+    return {getItems:getItems, add:add}
 }
 
 export default cart

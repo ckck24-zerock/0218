@@ -10,8 +10,18 @@
 <script type="module">
 
 import cart from "./cart.js";
+import makeMenu, {getCategories,doA} from "./menu.js";
 
 const cartObj = cart()
+const menuService = makeMenu()
+
+const catArr = getCategories()
+
+doA()
+
+
+console.log(cartObj)
+
 
 </script>
 
