@@ -8,17 +8,18 @@
 
 <style>
     .menuContainer {
-        width: 70vw;
+        width: 50vw;
         height: 50vh;
         background-color: lightblue;
     }
     .cartContainer {
-        width: 30vw;
+        width: 50vw;
         height: 50vh;
-        background-color: blue;
+        background-color: white;
     }
     .outerContainer {
         display: flex;
+        font-size: large;
     }
 </style>
 
@@ -33,6 +34,10 @@
         <ul class="itemList">
 
         </ul>
+        <hr/>
+        <div class="totalDiv">
+
+        </div>
     </div>
 </div>
 <script type="module">
@@ -47,6 +52,7 @@ const menuArr = menuService.getMenus()
 
 const menuList = document.querySelector('.menuList')
 const itemList = document.querySelector('.itemList')
+const totalDiv = document.querySelector('.totalDiv')
 
 function printMenus(menuArr){
 
@@ -60,9 +66,21 @@ function printMenus(menuArr){
 function printCart(arr) {
     let str ='';
 
-    str = arr.map( item => `<li data-mno="${item.mno}">${item.mname}  ${item.price} --${item.qty} </li>`).join("")
+    let total = 0
+
+    str = arr.map( item => {
+
+        total += item.qty * item.price
+
+        return `
+     <li data-mno="${item.mno}">
+        ${item.mname}  ${item.price} --${item.qty} 금액: ${item.qty * item.price}
+     </li>`
+
+    } ).join("")
 
     itemList.innerHTML = str
+    totalDiv.innerHTML = total
 
 }
 

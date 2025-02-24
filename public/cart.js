@@ -9,9 +9,19 @@ export default function cart() {
 
         const {mno,mname,price} = menu
 
-        const cartItem = {mno:mno, mname:mname,price:price, qty: 1}
+        //만일 기존에 해당 mno에 해당하는 것이 있다면 수량만 변경
 
-        items.push(cartItem)
+        const old = items.filter(item => item.mno === mno)
+
+        if(old.length > 0){
+            old[0].qty += 1
+        }else {
+            //없다면
+            const cartItem = {mno:mno, mname:mname,price:price, qty: 1}
+            items.push(cartItem)
+        }
+
+
 
         return [...items]
     }
