@@ -91,7 +91,15 @@ menuList.addEventListener('click', e => {
     const mno = Number(target.dataset.mno)
     const targetMenu = menuService.getMenu(mno)
 
-    const currentItems = cartObj.add(targetMenu)
+    const currentItems = cartObj.add(targetMenu) //배열
+
+    //객체 -> JSON문자열로 만들기
+    const jsonStr = JSON.stringify(currentItems)
+    console.log(jsonStr)
+
+    //JSON 문자열 -> 객체
+    console.log(JSON.parse(jsonStr))
+
     printCart(currentItems)
 
 
