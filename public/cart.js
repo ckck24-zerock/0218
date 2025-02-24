@@ -1,6 +1,6 @@
 
 
-function cart() {
+export default function cart() {
 
     let items = [] //장바구니 상품들
 
@@ -12,7 +12,6 @@ function cart() {
         return [...items]
     }
 
-    return {getItems:getItems, add:add}
+    return {getItems, add}
 }
 
-export default cart

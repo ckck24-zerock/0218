@@ -6,7 +6,35 @@
 </head>
 <body>
 
+<style>
+    .menuContainer {
+        width: 70vw;
+        height: 50vh;
+        background-color: lightblue;
+    }
+    .cartContainer {
+        width: 30vw;
+        height: 50vh;
+        background-color: blue;
+    }
+    .outerContainer {
+        display: flex;
+    }
+</style>
 
+<div class="outerContainer">
+    <div class="menuContainer">
+        <ul class="menuList">
+
+        </ul>
+    </div>
+
+    <div class="cartContainer">
+        <ul class="itemList">
+
+        </ul>
+    </div>
+</div>
 <script type="module">
 
 import cart from "./cart.js";
@@ -14,13 +42,23 @@ import makeMenu, {getCategories,doA} from "./menu.js";
 
 const cartObj = cart()
 const menuService = makeMenu()
-
 const catArr = getCategories()
+const menuArr = menuService.getMenus()
 
-doA()
+const menuList = document.querySelector('.menuList')
+const itemList = document.querySelector('.itemList')
 
+function printMenus(menuArr){
 
-console.log(cartObj)
+    let str ='';
+
+    str = menuArr.map( menu => `<li data-mno="${menu.mno}">${menu.mname}</li>`).join("")
+
+    menuList.innerHTML = str
+}
+
+printMenus(menuArr)
+
 
 
 </script>

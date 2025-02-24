@@ -14,7 +14,7 @@ function makeMenu() {
         return [...menus]
     }
 
-    return {getMenus:getMenus}
+    return {getMenus}
 }
 
 export function getCategories() {
