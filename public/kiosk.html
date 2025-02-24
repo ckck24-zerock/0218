@@ -62,10 +62,11 @@ menuList.addEventListener('click', e => {
     if(target.tagName !== 'LI') { return }
 
     const mno = Number(target.dataset.mno)
-
     const targetMenu = menuService.getMenu(mno)
 
-    console.log(targetMenu)
+    const currentItems = cartObj.add(targetMenu)
+
+    console.log(currentItems)
 
 }, false)
 
