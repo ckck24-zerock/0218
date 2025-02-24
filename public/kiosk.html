@@ -57,6 +57,15 @@ function printMenus(menuArr){
     menuList.innerHTML = str
 }
 
+function printCart(arr) {
+    let str ='';
+
+    str = arr.map( item => `<li data-mno="${item.mno}">${item.mname}  ${item.price} --${item.qty} </li>`).join("")
+
+    itemList.innerHTML = str
+
+}
+
 menuList.addEventListener('click', e => {
     const target = e.target
     if(target.tagName !== 'LI') { return }
@@ -65,8 +74,8 @@ menuList.addEventListener('click', e => {
     const targetMenu = menuService.getMenu(mno)
 
     const currentItems = cartObj.add(targetMenu)
+    printCart(currentItems)
 
-    console.log(currentItems)
 
 }, false)
 
