@@ -52,10 +52,20 @@ function printMenus(menuArr){
 
     let str ='';
 
-    str = menuArr.map( menu => `<li data-mno="${menu.mno}">${menu.mname}</li>`).join("")
+    str = menuArr.map( menu => `<li data-mno="${menu.mno}">${menu.mname}  ${menu.price}</li>`).join("")
 
     menuList.innerHTML = str
 }
+
+menuList.addEventListener('click', e => {
+    const target = e.target
+    if(target.tagName !== 'LI') { return }
+
+    const mno = target.dataset.mno
+
+    alert(mno)
+
+}, false)
 
 printMenus(menuArr)
 
