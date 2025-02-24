@@ -61,9 +61,11 @@ menuList.addEventListener('click', e => {
     const target = e.target
     if(target.tagName !== 'LI') { return }
 
-    const mno = target.dataset.mno
+    const mno = Number(target.dataset.mno)
 
-    alert(mno)
+    const targetMenu = menuService.getMenu(mno)
+
+    console.log(targetMenu)
 
 }, false)
 

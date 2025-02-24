@@ -10,11 +10,16 @@ function makeMenu() {
         {mno: 6, mname: 'Financier', price:3000, img1:'6.jpg', img2:'2.jpg', cat:'cookie'},
     ]
 
+    function getMenu(mno) {
+        const result = menus.findLast(m => m.mno === mno )
+        return result
+    }
+
     function getMenus() {
         return [...menus]
     }
 
-    return {getMenus}
+    return {getMenus, getMenu}
 }
 
 export function getCategories() {
